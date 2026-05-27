@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="es" class="notranslate" translate="no">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mel's Travel</title>
+    
+    <!-- META TAGS PARA GOOGLE SEARCH -->
+    <meta name="description" content="En Mel's Travel te ayudamos a elegir destinos que realmente encajan contigo: vacaciones en playa, Europa, escapadas en Brasil o viajes comerciales. Atención personalizada desde Ciudad del Este, Paraguay." />
+    <meta name="keywords" content="agencia de viajes, viajes Paraguay, Ciudad del Este, turismo, vacaciones, Europa, Brasil, Caribe, viajes comerciales" />
+    
+    <!-- OPEN GRAPH (Facebook, WhatsApp, LinkedIn) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://melstravelpy.com" />
+    <meta property="og:title" content="Mel's Travel" />
+    <meta property="og:description" content="Agencia de viajes en Ciudad del Este, Paraguay. Vacaciones en playa, Europa, Brasil y viajes comerciales con atención personalizada." />
+    <meta property="og:image" content="https://i.ibb.co/s95XCRsC/logo.png" />
+    <meta property="og:image:width" content="512" />
+    <meta property="og:image:height" content="512" />
+    <meta property="og:image:alt" content="Mel's Travel Logo" />
+    <meta property="og:site_name" content="Mel's Travel" />
+    <meta property="og:locale" content="es_ES" />
+    
+    <!-- TWITTER CARDS -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://melstravelpy.com" />
+    <meta name="twitter:title" content="Mel's Travel" />
+    <meta name="twitter:description" content="Agencia de viajes en Ciudad del Este, Paraguay. Vacaciones en playa, Europa, Brasil y viajes comerciales." />
+    <meta name="twitter:image" content="https://i.ibb.co/s95XCRsC/logo.png" />
+    <meta name="twitter:image:alt" content="Mel's Travel Logo" />
+    
+    <!-- FAVICON -->
+    <link rel="icon" type="image/png" href="https://i.ibb.co/s95XCRsC/logo.png" />
+    <link rel="apple-touch-icon" href="https://i.ibb.co/s95XCRsC/logo.png" />
+    
+    <!-- PREVENIR TRADUÇÃO AUTOMÁTICA - Evita erros como "estafa" -->
+    <meta name="google" content="notranslate" />
+    <meta name="translate" content="no" />
+    
+    <!-- Idiomas disponíveis -->
+    <link rel="alternate" hreflang="es" href="https://melstravelpy.com" />
+    <link rel="alternate" hreflang="pt" href="https://melstravelpy.com?lang=pt" />
+    <link rel="alternate" hreflang="en" href="https://melstravelpy.com?lang=en" />
+    
+    <!-- Copyright & Protection Meta Tags -->
+    <meta name="copyright" content="© 2025 Mel's Travel. Todos los derechos reservados." />
+    <meta name="author" content="Mel's Travel" />
+    <meta name="robots" content="noarchive, nocache" />
+    <meta name="googlebot" content="noarchive" />
+    <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate, proxy-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    
+    <!-- Copyright Notice Script - Non-blocking -->
+    <script>
+      // Console warning - apenas informativo, não bloqueia nada
+      (function() {
+        const styles = 'color: #ff6b35; font-size: 20px; font-weight: bold;';
+        const styles2 = 'color: #666; font-size: 12px;';
+        console.log('%c🎮 Game Travel™ by Mel\'s Travel', styles);
+        console.log('%c© 2025 - Todos los derechos reservados / All rights reserved', styles2);
+        console.log('%cEste código está protegido por derechos de autor.', styles2);
+        console.log('%cPara licencias: contacto@mels-travel.com', styles2);
+      })();
+    </script>
+    
+    <!-- SCHEMA.ORG - Dados estruturados para Google -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TravelAgency",
+      "name": "Mel's Travel",
+      "url": "https://melstravelpy.com",
+      "logo": "https://i.ibb.co/s95XCRsC/logo.png",
+      "image": "https://i.ibb.co/s95XCRsC/logo.png",
+      "description": "Agencia de viajes en Ciudad del Este, Paraguay. Vacaciones en playa, Europa, Brasil y viajes comerciales con atención personalizada.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Ciudad del Este",
+        "addressCountry": "PY"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+595-992-030554",
+        "contactType": "customer service",
+        "availableLanguage": ["Spanish", "Portuguese", "English"]
+      },
+      "sameAs": [
+        "https://instagram.com/melstravelpy",
+        "https://www.facebook.com/melstravel25",
+        "https://wa.me/595992030554"
+      ]
+    }
+    </script>
+  </head>
+  <body class="notranslate" translate="no">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+    
+    <!-- Bloqueio extra para impedir que o Google Tradutor mude o DOM -->
+    <script>
+      (function() {
+        // Remove qualquer elemento do Google Translate que apareça
+        const removeGoogleTranslate = function() {
+          const googleElements = document.querySelectorAll('.goog-te-banner-frame, .goog-te-menu-frame, #goog-gt-tt, .goog-tooltip');
+          googleElements.forEach(function(el) {
+            if (el) {
+              el.style.display = 'none';
+              el.remove();
+            }
+          });
+          
+          // Remove a classe que o Google adiciona ao body
+          document.body.classList.remove('translated-ltr', 'translated-rtl');
+        };
+        
+        // Executa imediatamente e periodicamente
+        removeGoogleTranslate();
+        setInterval(removeGoogleTranslate, 500);
+        
+        // Observa mudanças no DOM
+        if (window.MutationObserver) {
+          const observer = new MutationObserver(removeGoogleTranslate);
+          observer.observe(document.body, { childList: true, subtree: true });
+        }
+      })();
+    </script>
+  </body>
+</html>

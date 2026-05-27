@@ -1,0 +1,143 @@
+{
+  "_comment": "═══════════════════════════════════════════════════════════════\n  MAPA OCULTO DO SITE - Mel's Travel v44\n  Este arquivo serve como guia para qualquer IA que trabalhar\n  neste projeto no futuro.\n  ═══════════════════════════════════════════════════════════════",
+  "project": {
+    "name": "Mel's Travel",
+    "version": "v44",
+    "framework": "React + TypeScript + Vite + Tailwind CSS",
+    "router": "React Router DOM (HashRouter)",
+    "defaultLanguage": "es",
+    "supportedLanguages": ["es", "pt", "en"]
+  },
+  "siteStructure": {
+    "pages": [
+      {
+        "route": "/",
+        "component": "Home",
+        "file": "src/App.tsx (Home function)",
+        "sections": [
+          "Header (src/sections/Header.tsx)",
+          "Hero (src/sections/Hero.tsx)",
+          "Destinations (src/sections/Destinations.tsx)",
+          "Services (src/sections/Services.tsx)",
+          "Contact (src/sections/Contact.tsx)",
+          "Footer (src/sections/Footer.tsx)"
+        ],
+        "features": ["CustomCursor", "WhatsAppFloat", "DestinationModal"]
+      },
+      {
+        "route": "/game-travel",
+        "component": "GameTravel",
+        "file": "src/pages/GameTravel.tsx",
+        "description": "Jogo de roleta de destinos com globo 3D"
+      },
+      {
+        "route": "/destino/:slug",
+        "component": "DestinationPage",
+        "file": "src/pages/DestinationPage.tsx",
+        "description": "Página individual de cada destino (64 total)"
+      }
+    ]
+  },
+  "destinations": {
+    "totalCount": 64,
+    "categories": {
+      "home": {
+        "count": 4,
+        "slugs": ["caribe", "brasil", "europa", "corporativo"],
+        "dataFile": "src/data/destinationRoutes.ts (homeRoutes)"
+      },
+      "solo": {
+        "count": 20,
+        "dataFile": "src/data/destinationRoutes.ts (soloRoutes)"
+      },
+      "couple": {
+        "count": 20,
+        "dataFile": "src/data/destinationRoutes.ts (coupleRoutes)"
+      },
+      "friends": {
+        "count": 20,
+        "dataFile": "src/data/destinationRoutes.ts (friendsRoutes)"
+      }
+    }
+  },
+  "keyFiles": {
+    "routing": {
+      "file": "src/data/destinationRoutes.ts",
+      "exports": [
+        "destinationRoutes - objeto com todas as 64 rotas",
+        "getDestinationBySlug(slug) - busca destino por slug",
+        "getAllSlugs() - retorna array de todos os slugs",
+        "getDestinationsByMode(mode) - filtra por modo",
+        "generateSlug(city, mode) - gera slug a partir de cidade",
+        "slugExists(slug) - verifica se slug existe"
+      ]
+    },
+    "gameTravelData": {
+      "file": "src/data/destinations.ts",
+      "exports": [
+        "allSoloDestinations - 20 destinos solo",
+        "allCoupleDestinations - 20 destinos couple",
+        "allFriendsDestinations - 20 destinos friends",
+        "uiTranslations - traduções da interface (es/pt/en)",
+        "getRandomDestination(mode) - sorteia destino aleatório"
+      ]
+    },
+    "destinationPages": {
+      "file": "src/data/destinationPages.ts",
+      "description": "Dados expandidos dos 4 destinos da Home (textos mais longos)",
+      "status": "DEPRECATED - usar destinationRoutes.ts"
+    }
+  },
+  "slugConvention": {
+    "format": "{slugify(city)}-{mode}",
+    "examples": {
+      "home": "/destino/caribe",
+      "solo": "/destino/kioto-solo",
+      "couple": "/destino/paris-couple",
+      "friends": "/destino/ibiza-friends"
+    },
+    "rules": [
+      "city em lowercase",
+      "sem acentos (normalize NFD)",
+      "espaços e caracteres especiais -> hífen",
+      "sem hífens no início/fim",
+      "sufixo -{mode} obrigatório para Game Travel"
+    ]
+  },
+  "addingNewDestination": {
+    "steps": [
+      "1. Adicione a imagem em src/data/destinations.ts (objeto 'images')",
+      "2. Adicione o destino no array apropriado (allSolo/allCouple/allFriends)",
+      "3. Adicione a rota em src/data/destinationRoutes.ts",
+      "4. Siga a convenção de slug: {slugify(city)}-{mode}",
+      "5. A página será automaticamente acessível em /destino/{slug}"
+    ]
+  },
+  "antiTranslation": {
+    "htmlTag": "<html lang=\"es\" class=\"notranslate\" translate=\"no\">",
+    "metaTags": [
+      "<meta name=\"google\" content=\"notranslate\">",
+      "<meta name=\"translate\" content=\"no\">"
+    ],
+    "cssClass": "notranslate",
+    "jsSync": "document.documentElement.setAttribute('lang', currentLang)"
+  },
+  "seo": {
+    "titleTemplate": "{destinationName} | Mel's Travel",
+    "dynamicTitle": "Componente DestinationPage.tsx atualiza document.title",
+    "metaDescription": "Gerado dinamicamente baseado no destino"
+  },
+  "components": {
+    "DestinationPage": {
+      "file": "src/pages/DestinationPage.tsx",
+      "props": ["slug (via URL params)", "currentLang", "onLangChange"],
+      "features": [
+        "Header com seletor de idioma",
+        "Hero com imagem do destino",
+        "Conteúdo dinâmico (placeholder para blog futuro)",
+        "Footer padrão",
+        "WhatsApp Float"
+      ]
+    }
+  }
+}

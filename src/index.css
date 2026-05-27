@@ -1,0 +1,400 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222 25% 18%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 25% 18%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 25% 18%;
+    --primary: 17 100% 60%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 225 24% 16%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 220 14% 96%;
+    --muted-foreground: 220 9% 46%;
+    --accent: 20 100% 89%;
+    --accent-foreground: 17 100% 40%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 17 100% 60%;
+    --radius: 1.375rem;
+    
+    /* Custom Colors */
+    --mels-primary: #ff6b35;
+    --mels-primary-dark: #e55a2b;
+    --mels-primary-soft: #fff1eb;
+    --mels-secondary: #1f2433;
+    --mels-secondary-2: #2f3650;
+    --mels-accent: #ffd8c9;
+    --mels-text: #2f3545;
+    --mels-text-soft: #6d7588;
+    --mels-bg: #f7f8fb;
+    --mels-shadow: 0 18px 45px rgba(20, 25, 39, 0.12);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  html {
+    scroll-behavior: auto;
+  }
+  
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
+  }
+  
+  /* Garantir que todo texto se ajuste ao espaço disponível */
+  h1, h2, h3, h4, h5, h6, p, span, a, li, label {
+    text-wrap: balance;
+    overflow-wrap: break-word;
+    word-break: break-word;
+  }
+  
+  /* Títulos nunca devem ser cortados */
+  h1, h2, h3 {
+    text-wrap: balance;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    line-height: 1.2;
+  }
+  
+  ::selection {
+    background: var(--mels-primary);
+    color: white;
+  }
+}
+
+@layer components {
+  /* Gradient Mesh Background */
+  .gradient-mesh {
+    background: 
+      radial-gradient(ellipse at 20% 20%, rgba(255, 107, 53, 0.15) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 80%, rgba(31, 36, 51, 0.1) 0%, transparent 50%),
+      radial-gradient(ellipse at 50% 50%, rgba(255, 216, 201, 0.08) 0%, transparent 70%),
+      linear-gradient(135deg, #f8f9fc 0%, #f4f6fa 100%);
+  }
+  
+  /* Animated Gradient Background */
+  .animated-gradient {
+    background: linear-gradient(-45deg, #ff6b35, #1f2433, #ff6b35, #2f3650);
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+  }
+  
+  @keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  
+  /* Glassmorphism */
+  .glass {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+  }
+  
+  .glass-dark {
+    background: rgba(31, 36, 51, 0.7);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+  
+  /* Glow Effects */
+  .glow-primary {
+    box-shadow: 
+      0 0 20px rgba(255, 107, 53, 0.3),
+      0 0 40px rgba(255, 107, 53, 0.2),
+      0 0 60px rgba(255, 107, 53, 0.1);
+  }
+  
+  .glow-text {
+    text-shadow: 
+      0 0 10px rgba(255, 107, 53, 0.5),
+      0 0 20px rgba(255, 107, 53, 0.3),
+      0 0 30px rgba(255, 107, 53, 0.2);
+  }
+  
+  /* Magnetic Button Base */
+  .magnetic-btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+  
+  /* 3D Card */
+  .card-3d {
+    transform-style: preserve-3d;
+    perspective: 1000px;
+  }
+  
+  /* Text Reveal Animation */
+  .text-reveal {
+    overflow: hidden;
+  }
+  
+  .text-reveal span {
+    display: inline-block;
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  
+  /* Floating Animation */
+  .float {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+  }
+  
+  /* Pulse Glow */
+  .pulse-glow {
+    animation: pulseGlow 2s ease-in-out infinite;
+  }
+  
+  @keyframes pulseGlow {
+    0%, 100% { 
+      box-shadow: 0 0 20px rgba(255, 107, 53, 0.4);
+    }
+    50% { 
+      box-shadow: 0 0 40px rgba(255, 107, 53, 0.6), 0 0 60px rgba(255, 107, 53, 0.3);
+    }
+  }
+  
+  /* Shimmer Effect */
+  .shimmer {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .shimmer::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.2),
+      transparent
+    );
+    animation: shimmer 2s infinite;
+  }
+  
+  @keyframes shimmer {
+    100% { left: 100%; }
+  }
+  
+  /* Scroll Indicator */
+  .scroll-indicator {
+    animation: bounce 2s infinite;
+  }
+  
+  @keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-10px); }
+    60% { transform: translateY(-5px); }
+  }
+  
+  /* Line Draw Animation */
+  .line-draw {
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    animation: drawLine 2s ease forwards;
+  }
+  
+  @keyframes drawLine {
+    to { stroke-dashoffset: 0; }
+  }
+  
+  /* Particle Container */
+  .particles-container {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+  }
+  
+  /* Noise Texture Overlay */
+  .noise-overlay {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.03;
+    z-index: 9999;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  }
+  
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: var(--mels-primary);
+    border-radius: 4px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--mels-primary-dark);
+  }
+  
+  /* CSS Globe Animation */
+  @keyframes globeSpin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+  
+  .globe-spin-slow {
+    animation: globeSpin 20s linear infinite;
+  }
+  
+  .globe-spin-fast {
+    animation: globeSpin 0.5s linear infinite;
+  }
+  
+  /* Mobile Optimizations */
+  @media (max-width: 768px) {
+    .globe-spin-slow {
+      animation-duration: 30s;
+    }
+  }
+  
+  /* Touch manipulation for better mobile response */
+  .touch-manipulation {
+    touch-action: manipulation;
+  }
+  
+  /* Game Travel Branding */
+  .game-travel-brand {
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  /* Hero Title - Previne corte de texto ao trocar idiomas */
+  .hero-title-container {
+    display: block !important;
+    height: auto !important;
+    min-height: 120px;
+    overflow: visible !important;
+    white-space: normal !important;
+    transition: height 0.2s ease;
+  }
+  
+  .hero-title-container * {
+    height: auto !important;
+    overflow: visible !important;
+    white-space: normal !important;
+  }
+  
+  /* Hero Title específico */
+  .hero-title {
+    white-space: normal !important;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+    height: auto !important;
+    overflow: visible !important;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+  
+  .preserve-3d {
+    transform-style: preserve-3d;
+  }
+  
+  .backface-hidden {
+    backface-visibility: hidden;
+  }
+  
+  .rotate-y-180 {
+    transform: rotateY(180deg);
+  }
+  
+  /* Fontes responsivas que se ajustam ao espaço disponível */
+  .text-responsive-xs {
+    font-size: clamp(0.625rem, 1.5vw, 0.75rem);
+  }
+  
+  .text-responsive-sm {
+    font-size: clamp(0.75rem, 2vw, 0.875rem);
+  }
+  
+  .text-responsive-base {
+    font-size: clamp(0.875rem, 2.5vw, 1rem);
+  }
+  
+  .text-responsive-lg {
+    font-size: clamp(1rem, 3vw, 1.125rem);
+  }
+  
+  .text-responsive-xl {
+    font-size: clamp(1.125rem, 4vw, 1.25rem);
+  }
+  
+  .text-responsive-2xl {
+    font-size: clamp(1.25rem, 5vw, 1.5rem);
+  }
+  
+  .text-responsive-3xl {
+    font-size: clamp(1.5rem, 6vw, 1.875rem);
+  }
+  
+  .text-responsive-4xl {
+    font-size: clamp(1.875rem, 7vw, 2.25rem);
+  }
+  
+  .text-responsive-5xl {
+    font-size: clamp(2rem, 8vw, 3rem);
+  }
+  
+  .text-responsive-6xl {
+    font-size: clamp(2.5rem, 10vw, 3.75rem);
+  }
+  
+  /* Garantir que texto não seja cortado */
+  .text-no-cut {
+    text-wrap: balance;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    hyphens: auto;
+  }
+  
+  /* Container que evita overflow */
+  .no-overflow {
+    overflow-wrap: break-word;
+    word-break: break-word;
+    min-width: 0;
+  }
+}

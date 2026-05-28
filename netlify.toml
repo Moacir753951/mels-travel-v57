@@ -1,5 +1,5 @@
 [build]
-  command = "npm install && npx tsc -b && vite build"
+  command = "bash build.sh"
   publish = "dist"
 
 [[redirects]]

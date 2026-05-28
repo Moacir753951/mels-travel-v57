@@ -1,5 +1,5 @@
 #!/bin/bash
 set -e
-npm install
-npx tsc -b
-npx vite build
+npm ci --ignore-scripts 2>/dev/null || npm install
+./node_modules/.bin/tsc -b
+./node_modules/.bin/vite build
